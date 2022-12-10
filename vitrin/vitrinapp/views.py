@@ -1,3 +1,35 @@
 from django.shortcuts import render
+from django.core import serializers
+from .models import *
 
-# Create your views here.
+
+
+
+def home(request):
+    return render(request, 'home.html')
+
+
+
+
+def news(request):
+    news = News.objects.all()
+    serialize_news = serializers.serialize('json', news)
+
+    return render(request, 'index.html',{'data':serialize_news})
+
+
+
+
+def animations(request):
+    animations = Animations.objects.all()
+    serialize_animations = serializers.serialize('json', animations)
+
+    return render(request, 'index.html', {'data':serialize_animations} )
+
+
+
+def educations(request):
+    educations = Educations.objects.all()
+    serialize_educations  = serializers.serialize('json', educations)
+
+    return render(request, 'index.html', {'data':serialize_educations} )
