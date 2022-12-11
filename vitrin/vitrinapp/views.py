@@ -21,7 +21,7 @@ def news(request):
 
 
 def animations(request):
-    animations = Animations.objects.all()
+    animations = Animation.objects.all()
     serialize_animations = serializers.serialize('json', animations)
 
     return render(request, 'index.html', {'data':serialize_animations} )
@@ -29,7 +29,7 @@ def animations(request):
 
 
 def educations(request):
-    educations = Educations.objects.all()
+    educations = Education.objects.all()
     serialize_educations  = serializers.serialize('json', educations)
 
     return render(request, 'index.html', {'data':serialize_educations} )

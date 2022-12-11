@@ -21,7 +21,7 @@ class News(models.Model):
 
 
 
-class Animations(models.Model):
+class Animation(models.Model):
     GENRE_CHOICES = (
         ('A', 'Anime'),
         ('D', 'Adult'),
@@ -40,7 +40,7 @@ class Animations(models.Model):
 
 
 
-class Educations(models.Model):
+class Education(models.Model):
     order = models.SmallIntegerField(unique=True)
     title = models.CharField(max_length=20)
     image_url = models.ImageField(blank=True, null=True, upload_to='images/')
