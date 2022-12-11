@@ -30,6 +30,25 @@ def animations(request):
 
 def educations(request):
     educations = Education.objects.all()
-    serialize_educations  = serializers.serialize('json', educations)
+    ss = serializers.serialize('json', educations)
+    serialize_educations = {
+  "name": "بازار",
+  "theme": {
 
+  },
+  "rows": [
+    {
+      "header": {
+        "title": "پایه هفتم"
+      },
+      "arrange_type": "fixed_width",
+      "item_style": {
+        # "radius": True,
+        "ratio": 66.66
+      },
+      "items": ss
+    }
+  ]
+}
+    print(serialize_educations)
     return render(request, 'index.html', {'data':serialize_educations} )
