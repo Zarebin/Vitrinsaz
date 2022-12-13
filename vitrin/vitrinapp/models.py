@@ -50,6 +50,6 @@ class Item(models.Model):
         return {
             "title" : self.title,
             "order" : self.order,
-            # "image_url" : self.image_url,
+            "image_url" : self.image_url.url,
         }
 

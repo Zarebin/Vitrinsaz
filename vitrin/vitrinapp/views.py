@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import JsonResponse
 from .models import *
 import json
 
@@ -29,6 +29,5 @@ def vitrin_json_response(request):
     print('arash')
     json_vitrin = json.dumps(serialized)
     
-    return HttpResponse(json_vitrin)
+    return JsonResponse(json_vitrin)
 
-    
