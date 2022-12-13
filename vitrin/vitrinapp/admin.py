@@ -13,8 +13,6 @@ class VitrinAdmin(admin.ModelAdmin):
 
 
 
-
-
 @admin.register(Row)
 class RowAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'arrange_type', 'vitrin']

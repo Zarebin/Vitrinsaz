@@ -10,6 +10,12 @@ class Vitrin(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
 
+    def serialize(self) -> dict:
+        return {
+            "name": self.name,
+            "theme": self.theme,
+            "rows": list(map(lambda row: row.serialize(), Row.objects.filter(vitrin_id=self.id)))
+        }
 
 
 
@@ -22,6 +28,12 @@ class Row(models.Model):
     def __str__(self) -> str:
         return f"{self.title}"
 
+    def serialize(self) -> dict:
+        return {
+            "title": self.title,
+            "arrange_type": self.arrange_type,
+            "items": list(map(lambda item: item.serialize(), Item.objects.filter(row_id=self.id)))
+        }
 
 
 
@@ -33,4 +45,11 @@ class Item(models.Model):
 
     def __str__(self) -> str:
         return f"{self.order}:{self.title}"
+    
+    def serialize(self):
+        return {
+            "title" : self.title,
+            "order" : self.order,
+            # "image_url" : self.image_url,
+        }
 

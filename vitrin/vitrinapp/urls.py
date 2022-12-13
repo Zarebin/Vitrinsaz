@@ -6,4 +6,5 @@ from .views import *
 urlpatterns = [
     path('', home, name='home'),
     path('vitrin/', vitrin, name='vitrin'),
+    path('vitrinjson/', vitrin_json_response, name='vitrinjson'),
 ]
