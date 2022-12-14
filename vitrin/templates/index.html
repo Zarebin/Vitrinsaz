@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-        console.log('my name is ....');
         window.vitrin_data = {{data|safe}};
-        console.log('vitrin_data', vitrin_data );
+        console.log(window.vitrin_data);
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'list-style.css' %}">
     <title>Document</title>
 
@@ -22,7 +22,7 @@
         <p>hello</p>
 
     </div>
- 
-    <script src="{% static 'bundle.js' %}"></script>
+
+    <script src="{% static 'main.js' %}"></script>
 </body>
 </html>
