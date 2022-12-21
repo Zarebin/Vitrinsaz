@@ -20,9 +20,12 @@ class Vitrin(models.Model):
 
 
 class Row(models.Model):
-
+    ARRANGE_CHOICES = (
+        ("H", "fixed_height"),
+        ("W", "fixed_width"),
+    )
     title = models.CharField(max_length=30)
-    arrange_type = models.CharField(max_length=20)
+    arrange_type = models.CharField(max_length=1, choices=ARRANGE_CHOICES)
     vitrin = models.ForeignKey(Vitrin, on_delete = models.CASCADE)
 
     def __str__(self) -> str:

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core import serializers
-from django.http import JsonResponse
+from django.http import JsonResponse , HttpResponse
 from .models import *
 import json
 
@@ -8,14 +8,16 @@ import json
 
 
 def home(request):
-    return render(request, 'home.html')
+    vitrins = Vitrin.objects.all()
+    vitrin_json = serializers.serialize('json', vitrins)
+    return render(request, 'index.html', {'data':vitrin_json})
 
 
-def vitrin(request):
-    vitrin = Item.objects.all()
-    serialized = {"vitrin": list(map(lambda vitrin: vitrin.serialize(), Vitrin.objects.all()))}
-    json_vitrin = json.dumps(serialized)
+
+def vitrin(request, name:str):
+    serialized = {"vitrin":list(map(lambda vitrin: vitrin.serialize(), Vitrin.objects.filter(name__icontains =  name)))}
+    vit_json = json.dumps(serialized)
+
+    return render(request, 'home.html', {'data':vit_json})
     
-    return render(request, 'index.html', {'data':json_vitrin} )
-
 
