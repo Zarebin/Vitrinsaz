@@ -25,7 +25,7 @@ class RowAdmin(admin.ModelAdmin):
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = ['order', 'title', 'image_url', 'row', 'image_tag']
-    list_editable = ['title']
+    list_editable = ['title', 'image_url']
     list_filter = ['order', 'title']
     sortable_by = ['order', 'title']
     readonly_fields = ['image_tag']

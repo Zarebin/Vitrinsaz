@@ -5,7 +5,7 @@ from decimal import Decimal
 class Vitrin(models.Model):
 
     name = models.CharField(max_length=30)
-    background = models.ImageField(blank=True, null= True, upload_to="images/")
+    background = models.ImageField(blank=True, null= True, upload_to="static/images/")
     vertical_margin = models.PositiveSmallIntegerField(default=100)
     horizontal_margin = models.PositiveSmallIntegerField(default=100)
 
@@ -53,7 +53,7 @@ class Row(models.Model):
 class Item(models.Model):
     order = models.AutoField(primary_key=True, auto_created=True)
     title = models.CharField(max_length=50)
-    image_url = models.ImageField(blank=True, null=True, upload_to='images/')
+    image_url = models.ImageField(blank=True, null=True, upload_to='static/images/')
     row = models.ForeignKey(Row, on_delete = models.CASCADE)
 
     def __str__(self) -> str:
