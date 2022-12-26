@@ -10,14 +10,14 @@ import json
 def home(request):
     vitrins = Vitrin.objects.all()
     vitrin_json = serializers.serialize('json', vitrins)
-    return render(request, 'index.html', {'data':vitrin_json})
+    return render(request, 'index.html', {'data':vitrin_json, 'vitrins':vitrins})
 
 
 
 def vitrin(request, name:str):
     serialized = {"vitrin":list(map(lambda vitrin: vitrin.serialize(), Vitrin.objects.filter(name__icontains =  name)))}
-    vit_json = json.dumps(serialized)
+    vitrin_data = json.dumps(serialized)
+    return render(request, 'index.html', {'data':vitrin_data})
 
-    return render(request, 'home.html', {'data':vit_json})
     
 
