@@ -13,27 +13,18 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'list-style.css' %}">
+    <link rel="stylesheet" href="{% static 'general-style.css' %}">
+    <link rel="stylesheet" href="{% static 'home-style.css' %}">
+
     <title>Document</title>
 
 </head>
 <body>
 
-    <div id="template">
-        <p>hello</p>
 
-    </div>
+<div id="template">
 
-
-    <div>
-        <ul>
-
-            {% for v in vitrins %}
-                <a href="{% url 'vitrin' v.name %}"><li>{{v.name}}</li></a>
-            {% endfor %}
-            
-        </ul>
-    </div>
+</div>
 
     <script src="{% static 'main.js' %}"></script>
 </body>
