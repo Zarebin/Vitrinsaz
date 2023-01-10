@@ -9,19 +9,24 @@
     <script type="text/javascript">
         window.vitrin_data = {{data|safe}};
         console.log(window.vitrin_data);
+        console.log(window.vitrin_data[0].fields.name);
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'list-style.css' %}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'general-style.css' %}">
+    <link rel="stylesheet" href="{% static 'home-style.css' %}">
 
+    <title>Document</title>
+    <style>
+        
+    </style>
 </head>
 <body>
 
-    <div id="template">
-        <p>hello</p>
 
-    </div>
+<div id="template">
+
+</div>
 
     <script src="{% static 'main.js' %}"></script>
 </body>

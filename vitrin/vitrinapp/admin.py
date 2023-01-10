@@ -5,11 +5,11 @@ from .models import *
 
 @admin.register(Vitrin)
 class VitrinAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'theme']
+    list_display = ['id', 'name', 'vertical_margin', 'horizontal_margin']
     sortable_by = ['name']
-    list_editable = ['theme']
+    list_editable = ['vertical_margin', 'horizontal_margin']
     list_filter = ['name']
-    fields = ['name', 'theme']
+    fields = ['name', 'vertical_margin', 'horizontal_margin', 'background']
 
 
 
@@ -17,15 +17,15 @@ class VitrinAdmin(admin.ModelAdmin):
 class RowAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'arrange_type', 'vitrin']
     sortable_by  = ['title']
-    list_editable = ['title']
+    list_editable = ['arrange_type']
     list_filter = ['title']
-    fields = [ 'title', 'arrange_type', 'vitrin']
+    fields = [ 'title', 'arrange_type', 'radius', 'height', 'ratio', 'vitrin']
 
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = ['order', 'title', 'image_url', 'row', 'image_tag']
-    list_editable = ['title']
+    list_editable = ['title', 'image_url']
     list_filter = ['order', 'title']
     sortable_by = ['order', 'title']
     readonly_fields = ['image_tag']
