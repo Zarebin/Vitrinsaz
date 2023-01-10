@@ -1,54 +1,23 @@
 from django.shortcuts import render
 from django.core import serializers
+from django.http import JsonResponse , HttpResponse
 from .models import *
+import json
 
 
 
 
 def home(request):
-    return render(request, 'home.html')
+    vitrins = Vitrin.objects.all()
+    vitrin_json = serializers.serialize('json', vitrins)
+    return render(request, 'index.html', {'data':vitrin_json})
 
 
 
+def vitrin(request, name:str):
+    serialized = {"vitrin":list(map(lambda vitrin: vitrin.serialize(), Vitrin.objects.filter(name__icontains =  name)))}
+    vit_json = json.dumps(serialized)
 
-def news(request):
-    news = News.objects.all()
-    serialize_news = serializers.serialize('json', news)
+    return render(request, 'home.html', {'data':vit_json})
+    
 
-    return render(request, 'index.html',{'data':serialize_news})
-
-
-
-
-def animations(request):
-    animations = Animation.objects.all()
-    serialize_animations = serializers.serialize('json', animations)
-
-    return render(request, 'index.html', {'data':serialize_animations} )
-
-
-
-def educations(request):
-    educations = Education.objects.all()
-    ss = serializers.serialize('json', educations)
-    serialize_educations = {
-  "name": "بازار",
-  "theme": {
-
-  },
-  "rows": [
-    {
-      "header": {
-        "title": "پایه هفتم"
-      },
-      "arrange_type": "fixed_width",
-      "item_style": {
-        # "radius": True,
-        "ratio": 66.66
-      },
-      "items": ss
-    }
-  ]
-}
-    print(serialize_educations)
-    return render(request, 'index.html', {'data':serialize_educations} )
