@@ -6,10 +6,10 @@ from .models import *
 @admin.register(Vitrin)
 class VitrinAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'vertical_margin', 'horizontal_margin']
-    sortable_by = ['name']
+    sortable_by = ['id','name']
     list_editable = ['vertical_margin', 'horizontal_margin']
     list_filter = ['name']
-    fields = ['name', 'vertical_margin', 'horizontal_margin', 'background']
+    fields = ['name', 'vertical_margin', 'horizontal_margin','style', 'background']
 
 
 

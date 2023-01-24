@@ -8,6 +8,7 @@ class Vitrin(models.Model):
     background = models.ImageField(blank=True, null= True, upload_to="static/images/")
     vertical_margin = models.PositiveSmallIntegerField(default=100)
     horizontal_margin = models.PositiveSmallIntegerField(default=100)
+    style = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.name}"
