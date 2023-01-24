@@ -16,7 +16,7 @@ class VitrinAdmin(admin.ModelAdmin):
 @admin.register(Row)
 class RowAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'arrange_type', 'vitrin']
-    sortable_by  = ['title']
+    sortable_by  = ['id', 'title']
     list_editable = ['arrange_type']
     list_filter = ['title']
     fields = [ 'title', 'arrange_type', 'radius', 'height', 'ratio', 'vitrin']
@@ -27,7 +27,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ['order', 'title', 'image_url', 'row', 'image_tag']
     list_editable = ['title', 'image_url']
     list_filter = ['order', 'title']
-    sortable_by = ['order', 'title']
+    sortable_by = ['id', 'order', 'title']
     readonly_fields = ['image_tag']
     fields = [ 'title','row', 'image_url', 'image_tag']
 
